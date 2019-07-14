@@ -1,7 +1,7 @@
 var querystring = require('querystring');
 
 var got = require('got');
-var token = require('google-translate-token');
+var token = require('@vitalets/google-translate-token');
 
 var languages = require('./languages');
 
@@ -24,15 +24,15 @@ function translate(text, opts) {
 
     opts.from = opts.from || 'auto';
     opts.to = opts.to || 'en';
-
+    opts.tld = opts.tld || 'com';
 
     opts.from = languages.getCode(opts.from);
     opts.to = languages.getCode(opts.to);
 
-    return token.get(text).then(function (token) {
-        var url = 'https://translate.google.com/translate_a/single';
+    return token.get(text, {tld: opts.tld}).then(function (token) {
+        var url = 'https://translate.google.' + opts.tld + '/translate_a/single';
         var data = {
-            client: 'gtx',
+            client: opts.client || 't',
             sl: opts.from,
             tl: opts.to,
             hl: opts.to,
@@ -52,7 +52,7 @@ function translate(text, opts) {
         return got(url).then(function (res) {
             var result = {
                 text: '',
-
+                pronunciation: '',
                 from: {
                     language: {
                         didYouMean: false,
@@ -76,9 +76,9 @@ function translate(text, opts) {
                 if (obj[0]) {
                     result.text += obj[0];
                 }
-
-
-
+                if (obj[2]) {
+                    result.pronunciation += obj[2];
+                }
             });
 
             if (body[2] === body[8][0][0]) {
@@ -106,7 +106,6 @@ function translate(text, opts) {
             return result;
         }).catch(function (err) {
             err.message += `\nUrl: ${url}`;
-
             if (err.statusCode !== undefined && err.statusCode !== 200) {
                 err.code = 'BAD_REQUEST';
             } else {
