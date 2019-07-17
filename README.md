@@ -1,33 +1,19 @@
 # google-translate-api
 [![Build Status](https://travis-ci.org/vitalets/google-translate-api.svg?branch=master)](https://travis-ci.org/vitalets/google-translate-api)
-[![NPM version](https://img.shields.io/npm/v/@vitalets/google-translate-api.svg)](https://www.npmjs.com/package/@vitalets/google-translate-api)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
-[![Coverage Status](https://coveralls.io/repos/github/vitalets/google-translate-api/badge.svg?branch=master)](https://coveralls.io/github/vitalets/google-translate-api?branch=master)
 
 A **free** and **unlimited** API for Google Translate :dollar::no_entry_sign: for Node.js.
 
-## Features 
+## Features
 
 - Auto language detection
 - Spelling correction
-- Language correction 
+- Language correction
 - Fast and reliable – it uses the same servers that [translate.google.com](https://translate.google.com) uses
 
 ## Why this fork?
-This fork of original [matheuss/google-translate-api](https://github.com/matheuss/google-translate-api) contains several improvements:
+This fork of original [vitalets/google-translate-api](https://github.com/vitalets/google-translate-api) contains several fixed for the discord translation bot [RITA](https://github.com/ZyC0R3/Rita)
 
-- New option `client="t|gtx"`. Setting `client="gtx"` seems to work even with outdated token, see [this discussion](https://github.com/matheuss/google-translate-api/issues/79#issuecomment-425679193) for details
-- Fixed extraction of TKK ceed from current `https://translate.google.com` sources (via [@vitalets/google-translate-token](https://github.com/vitalets/google-translate-token))
-- Removed unsecure `unsafe-eval` dependency (See [#2](https://github.com/vitalets/google-translate-api/pull/2))
-- Added [daily CI tests](https://travis-ci.org/vitalets/google-translate-api/builds) to get notified if Google API changes
-- Added support for custom `tld` (especially to support `translate.google.cn`, see [#7](https://github.com/vitalets/google-translate-api/pull/7))
-- Added support for outputting pronunciation (See [#17](https://github.com/vitalets/google-translate-api/pull/17))
-
-## Install 
-
-```
-npm install @vitalets/google-translate-api
-```
 
 ## Usage
 
@@ -82,7 +68,7 @@ translate('I spea Dutch!', {from: 'en', to: 'nl'}).then(res => {
 ```
 
 ## Does it work from web page context?
-No. `https://translate.google.com` does not provide [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) http headers allowing access from other domains. 
+No. `https://translate.google.com` does not provide [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) http headers allowing access from other domains.
 
 ## API
 
@@ -157,6 +143,13 @@ Otherwise, it will be an empty `string` (`''`).
 
 - [`vertaler`](https://github.com/matheuss/vertaler) – CLI for this module
 
-## License
+## Related
 
-MIT © [Matheus Fernandes](http://matheus.top)
+This Version is a Clone of
+- [`@vitalets/google-translate-api`](https://github.com/vitalets/google-translate-api) – A free and unlimited API for Google Translate
+And needs
+- [`@vitalets/google-translate-token`](https://github.com/vitalets/google-translate-token) – A Token fo the API for Google Translate
+
+**This Cloned Version Needs**
+
+- [`ZyC0R3-google-translate-token`](https://github.com/ZyC0R3/google-translate-token) – A Token fo the API for Google Translate
