@@ -36,7 +36,7 @@
   "homepage": "https://github.com/ZyC0R3/google-translate-api#readme",
   "dependencies": {
     "configstore": "^2.0.0",
-    "google-translate-token": "github:ZyC0R3/google-translate-token#test-branch",
+    "google-translate-token": "github:ZyC0R3/google-translate-token",
     "got": "^6.3.0"
   },
   "devDependencies": {
