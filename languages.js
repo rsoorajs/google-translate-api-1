@@ -117,13 +117,14 @@ var langs = {
 };
 /**
  * Returns the ISO 639-1 code of the desiredLang – if it is supported by Google Translate
- * @param {string} desiredLang – the name or the code(case sensitive) of the desired language
+ * @param {string} desiredLang – the name or the code of the desired language
  * @returns {string|boolean} The ISO 639-1 code of the language or false if the language is not supported
  */
 function getCode(desiredLang) {
     if (!desiredLang) {
         return false;
     }
+    desiredLang = desiredLang.toLowerCase();
 
     if (langs[desiredLang]) {
         return desiredLang;
@@ -134,7 +135,7 @@ function getCode(desiredLang) {
             return false;
         }
 
-        return langs[key].toLowerCase() === desiredLang.toLowerCase();
+        return langs[key].toLowerCase() === desiredLang;
     });
 
     return keys[0] || false;
