@@ -23,8 +23,8 @@ var langs = {
     'ceb': 'Cebuano',
     'ny': 'Chichewa',
     'zh': 'Chinese (Simplified)',
-    'zh-CN': 'Chinese (Simplified)',
-    'zh-TW': 'Chinese (Traditional)',
+    'zh-cn': 'Chinese (Simplified)',
+    'zh-tw': 'Chinese (Traditional)',
     'co': 'Corsican',
     'hr': 'Croatian',
     'cs': 'Czech',
@@ -135,7 +135,7 @@ function getCode(desiredLang) {
             return false;
         }
 
-        return langs[key].toLowerCase() === desiredLang.toLowerCase();
+        return langs[key].toLowerCase() === desiredLang;
     });
 
     return keys[0] || false;
