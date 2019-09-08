@@ -124,6 +124,7 @@ function getCode(desiredLang) {
     if (!desiredLang) {
         return false;
     }
+    desiredLang = desiredLang.toLowerCase();
 
     if (langs[desiredLang]) {
         return desiredLang;
