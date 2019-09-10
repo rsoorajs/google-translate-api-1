@@ -160,16 +160,12 @@ test('pass got options', async t => {
     t.is(a, 1);
 });
 
-test('test get zh code', t => {
-    t.false(languages.getCode('zh'));
-});
-
 test('test get zh-cn code is zh-cn', t => {
     t.is(languages.getCode('zh-cn'), 'zh-cn');
 });
 
 test('test get zh-CN code - false', t => {
-    t.true(languages.getCode('zh-CN'));
+    t.fasle(languages.getCode('zh-CN'));
 });
 
 test('test get zh-tw code is zh-tw', t => {
@@ -177,7 +173,7 @@ test('test get zh-tw code is zh-tw', t => {
 });
 
 test('test get zh-TW code - false', t => {
-    t.true(languages.getCode('zh-TW'));
+    t.false(languages.getCode('zh-TW'));
 });
 
 test('test zh unsupported', t => {
