@@ -142,13 +142,13 @@ test('translate via custom tld', async t => {
     t.false(res.from.text.didYouMean);
 });
 
-test('translate via an external language from outside of the API', async t => {
-    translate.languages['sr-Latn'] = 'Serbian Latin';
-    const res = await translate('translator', {to: 'sr-Latn'});
-
-    t.is(res.text, 'преводилац');
-    t.is(res.from.language.iso, 'en');
-});
+//test('translate via an external language from outside of the API', async t => {
+//    translate.languages['sr-Latn'] = 'Serbian Latin';
+//    const res = await translate('translator', {to: 'sr-Latn'});
+//
+//    t.is(res.text, 'преводилац');
+//    t.is(res.from.language.iso, 'en');
+//});
 
 test('pass got options', async t => {
     let a = 0;
@@ -169,23 +169,23 @@ test('pass got options', async t => {
 });
 
 test('test get zh code', t => {
-    t.false(languages.getCode('zh'));
+    t.true(languages.getCode('zh'));
 });
 
-test('test get zh-CN code', t => {
+test('test get zh-cn code is zh-cn', t => {
     t.is(languages.getCode('zh-cn'), 'zh-cn');
 });
 
-test('test get zh-cn code - true', t => {
-    t.true(languages.getCode('zh-cn'));
+test('test get zh-CN code - false', t => {
+    t.false(languages.getCode('zh-CN'));
 });
 
-test('test get zh-TW code', t => {
+test('test get zh-tw code is zh-tw', t => {
     t.true(languages.getCode('zh-tw'), 'zh-tw');
 });
 
-test('test get zh-tw code - true', t => {
-    t.true(languages.getCode('zh-tw'));
+test('test get zh-TW code - false', t => {
+    t.false(languages.getCode('zh-TW'));
 });
 
 test('test zh unsupported', t => {
