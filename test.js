@@ -165,7 +165,7 @@ test('test get zh-cn code is zh-cn', t => {
 });
 
 test('test get zh-CN code - false', t => {
-    t.fasle(languages.getCode('zh-CN'));
+    t.false(languages.getCode('zh-CN'));
 });
 
 test('test get zh-tw code is zh-tw', t => {
