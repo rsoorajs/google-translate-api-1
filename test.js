@@ -142,14 +142,6 @@ test('translate via custom tld', async t => {
     t.false(res.from.text.didYouMean);
 });
 
-//test('translate via an external language from outside of the API', async t => {
-//    translate.languages['sr-Latn'] = 'Serbian Latin';
-//    const res = await translate('translator', {to: 'sr-Latn'});
-//
-//    t.is(res.text, 'преводилац');
-//    t.is(res.from.language.iso, 'en');
-//});
-
 test('pass got options', async t => {
     let a = 0;
     const gotopts = {
