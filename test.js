@@ -169,22 +169,22 @@ test('pass got options', async t => {
 });
 
 test('test get zh code', t => {
-    t.true(languages.getCode('zh'));
+    t.false(languages.getCode('zh'));
 });
 
 test('test get zh-CN code', t => {
     t.is(languages.getCode('zh-cn'), 'zh-cn');
 });
 
-test('test get zh-cn code - false', t => {
+test('test get zh-cn code - true', t => {
     t.true(languages.getCode('zh-cn'));
 });
 
 test('test get zh-TW code', t => {
-    t.false(languages.getCode('zh-tw'), 'zh-tw');
+    t.true(languages.getCode('zh-tw'), 'zh-tw');
 });
 
-test('test get zh-tw code', t => {
+test('test get zh-tw code - true', t => {
     t.true(languages.getCode('zh-tw'));
 });
 
