@@ -176,20 +176,24 @@ test('test get zh-CN code', t => {
     t.is(languages.getCode('zh-CN'), 'zh-CN');
 });
 
-test('test get zh-cn code', t => {
+test('test get zh-cn code - false', t => {
     t.false(languages.getCode('zh-cn'));
 });
 
+test('test get zh-cn code - is', t => {
+    t.is(languages.getCode('zh-cn'));
+});
+
 test('test get zh-TW code', t => {
-    t.is(languages.getCode('zh-TW'), 'zh-TW');
+    t.false(languages.getCode('zh-TW'), 'zh-TW');
 });
 
 test('test get zh-tw code', t => {
-    t.false(languages.getCode('zh-tw'));
+    t.is(languages.getCode('zh-tw'));
 });
 
 test('test zh unsupported', t => {
-    t.false(languages.isSupported('zh'));
+    t.true(languages.isSupported('zh'));
 });
 
 test('test zh-CN supported', t => {
