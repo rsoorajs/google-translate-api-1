@@ -164,16 +164,8 @@ test('test get zh-cn code is zh-cn', t => {
     t.is(languages.getCode('zh-cn'), 'zh-cn');
 });
 
-test('test get zh-CN code - false', t => {
-    t.false(languages.getCode('zh-CN'));
-});
-
 test('test get zh-tw code is zh-tw', t => {
     t.is(languages.getCode('zh-tw'), 'zh-tw');
-});
-
-test('test get zh-TW code - false', t => {
-    t.false(languages.getCode('zh-TW'));
 });
 
 test('test zh unsupported', t => {
