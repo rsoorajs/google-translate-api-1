@@ -9,6 +9,12 @@ test.beforeEach(() => {
     config.clear();
 });
 
+test('translate from en to dutch - Hello', async t => {
+    const res = await translate('hello', {from: 'en', to: 'nl'});
+
+    t.is(res.text, 'Hallo');
+});
+
 test('translate without any options', async t => {
     const res = await translate('vertaler');
 
