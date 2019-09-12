@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "xo && nyc ava",
-    "lmtest": "xo && nyc ava",
     "coverage": "nyc report --reporter=text-lcov | coveralls && nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "release": "npm test && npm version $VER && npm publish",
     "postrelease": "git push --follow-tags --no-verify",
