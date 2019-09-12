@@ -1,6 +1,5 @@
-import test from 'ava';
+import lmtest from 'ava';
 import Configstore from 'configstore';
-import languages from './languages';
 import translate from './index';
 
 const config = new Configstore('google-translate-api');
