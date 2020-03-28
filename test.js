@@ -26,16 +26,16 @@ test('translate without any options', async t => {
     t.false(res.from.text.didYouMean);
 });
 
-//test('translate from auto to dutch', async t => {
-//    const res = await translate('translator', {from: 'auto', to: 'nl'});
-//
-//    t.is(res.text, 'vertaler');
-//    t.false(res.from.language.didYouMean);
-//    t.is(res.from.language.iso, 'en');
-//    t.false(res.from.text.autoCorrected);
-//    t.is(res.from.text.value, '');
-//    t.false(res.from.text.didYouMean);
-//});
+test('translate from auto to dutch', async t => {
+    const res = await translate('translator', {from: 'auto', to: 'nl'});
+
+    t.is(res.text, 'vertaler');
+    t.false(res.from.language.didYouMean);
+    t.is(res.from.language.iso, 'en');
+    t.false(res.from.text.autoCorrected);
+    t.is(res.from.text.value, '');
+    t.false(res.from.text.didYouMean);
+});
 
 test('test pronunciation', async t => {
     const res = await translate('translator', {from: 'auto', to: 'zh-CN'});
