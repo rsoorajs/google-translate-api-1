@@ -35,17 +35,17 @@
   },
   "homepage": "https://github.com/ZyC0R3/google-translate-api#readme",
   "dependencies": {
-    "configstore": "^2.0.0",
+    "configstore": "^5.0.1",
     "google-translate-token": "github:ZyC0R3/google-translate-token",
     "got": "^9.6.0"
   },
   "devDependencies": {
-    "ava": "^2.3.0",
+    "ava": "^3.5.1",
     "codecov": "^1.0.1",
-    "coveralls": "^3.0.6",
-    "husky": "^3.0.4",
-    "nyc": "^14.1.1",
-    "xo": "^0.16.0"
+    "coveralls": "^3.0.11",
+    "husky": "^3.1.0",
+    "nyc": "^15.0.0",
+    "xo": "^0.28.1"
   },
   "xo": {
     "space": 4
