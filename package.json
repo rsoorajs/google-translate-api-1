@@ -1,6 +1,6 @@
 {
   "name": "google-translate-api",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "A free and unlimited API for Google Translate",
   "main": "index.js",
   "scripts": {
@@ -35,17 +35,17 @@
   },
   "homepage": "https://github.com/ZyC0R3/google-translate-api#readme",
   "dependencies": {
-    "configstore": "^5.0.1",
+    "configstore": "^2.0.0",
     "google-translate-token": "github:ZyC0R3/google-translate-token",
     "got": "^9.6.0"
   },
   "devDependencies": {
-    "ava": "^3.5.1",
-    "codecov": "^1.0.1",
+    "ava": "^2.4.0",
+    "codecov": "^3.6.5",
     "coveralls": "^3.0.11",
     "husky": "^3.1.0",
-    "nyc": "^15.0.0",
-    "xo": "^0.28.1"
+    "nyc": "^14.1.1",
+    "xo": "^0.16.0"
   },
   "xo": {
     "space": 4
