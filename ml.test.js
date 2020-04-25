@@ -31,9 +31,3 @@ test('translate from en to ar (Arabic) - Hello', async t => {
 
     t.is(res.text, 'مرحبا');
 });
-
-test('translate from en to fr (French) - Hello', async t => {
-    const res = await translate('hello', {from: 'en', to: 'fr'});
-
-    t.is(res.text, 'Bonjour');
-});
