@@ -14,12 +14,6 @@ test('translate from en to ps (Pashto) - Hello', async t => {
     t.is(res.text, 'سلام');
 });
 
-test('translate from en to sv (Swedish) - Hello', async t => {
-    const res = await translate('hello', {from: 'en', to: 'sv'});
-
-    t.is(res.text, 'Hej');
-});
-
 test('translate from en to sq (Albanian) - Hello', async t => {
     const res = await translate('hello', {from: 'en', to: 'sq'});
 
