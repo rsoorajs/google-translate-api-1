@@ -1,6 +1,6 @@
-import test from 'ava';
-import Configstore from 'configstore';
-import translate from './index';
+var test = require('ava');
+var Configstore = require('configstore');
+var translate = require('./index.js');
 
 const config = new Configstore('google-translate-api');
 
