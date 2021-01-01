@@ -1,18 +1,12 @@
-import test from 'ava';
-import Configstore from 'configstore';
-import languages from './languages';
-import translate from './index';
+var test = require('ava');
+var Configstore = require('configstore');
+var languages = require('./languages.js');
+var translate = require('./index.js');
 
 const config = new Configstore('google-translate-api');
 
 test.beforeEach(() => {
     config.clear();
-});
-
-test('translate from en to dutch - Hello', async t => {
-    const res = await translate('hello', {from: 'en', to: 'nl'});
-
-    t.is(res.text, 'Hallo');
 });
 
 test('translate without any options', async t => {
@@ -26,14 +20,25 @@ test('translate without any options', async t => {
     t.false(res.from.text.didYouMean);
 });
 
+test('translate from auto to dutch', async t => {
+    const res = await translate('translator', {from: 'auto', to: 'nl'});
+
+    t.is(res.text, 'vertaler');
+    t.false(res.from.language.didYouMean);
+    t.is(res.from.language.iso, 'en');
+    t.false(res.from.text.autoCorrected);
+    t.is(res.from.text.value, '');
+    t.false(res.from.text.didYouMean);
+});
+
 test('test pronunciation', async t => {
     const res = await translate('translator', {from: 'auto', to: 'zh-CN'});
 
-    t.is(res.pronunciation, 'Fānyì zhě');
+    t.is(res.pronunciation, 'Yì zhě');
 });
 
 test('translate some english text setting the source language as portuguese', async t => {
-    const res = await translate('translator', {from: 'pt', to: 'nl'});
+    const res = await translate('happy', {from: 'pt', to: 'nl'});
 
     t.true(res.from.language.didYouMean);
     t.is(res.from.language.iso, 'en');
@@ -137,6 +142,14 @@ test('translate via custom tld', async t => {
     t.false(res.from.text.didYouMean);
 });
 
+test('translate via an external language from outside of the API', async t => {
+    translate.languages['sr-Latn'] = 'Serbian Latin';
+    const res = await translate('translator', {to: 'sr-Latn'});
+
+    t.is(res.text, 'преводилац');
+    t.is(res.from.language.iso, 'en');
+});
+
 test('pass got options', async t => {
     let a = 0;
     const gotopts = {
@@ -152,35 +165,47 @@ test('pass got options', async t => {
     const res = await translate('vertaler', {}, gotopts);
 
     t.is(res.text, 'translator');
-    t.is(a, 1);
+    t.is(a, 2);
 });
 
-test('test get zh-cn code is zh-cn', t => {
-    t.is(languages.getCode('zh-cn'), 'zh-cn');
+test('test get zh code', t => {
+    t.false(languages.getCode('zh'));
 });
 
-test('test get zh-tw code is zh-tw', t => {
-    t.is(languages.getCode('zh-tw'), 'zh-tw');
+test('test get zh-CN code', t => {
+    t.is(languages.getCode('zh-CN'), 'zh-CN');
+});
+
+test('test get zh-cn code', t => {
+    t.false(languages.getCode('zh-cn'));
+});
+
+test('test get zh-TW code', t => {
+    t.is(languages.getCode('zh-TW'), 'zh-TW');
+});
+
+test('test get zh-tw code', t => {
+    t.false(languages.getCode('zh-tw'));
 });
 
 test('test zh unsupported', t => {
-    t.true(languages.isSupported('zh'));
+    t.false(languages.isSupported('zh'));
 });
 
 test('test zh-CN supported', t => {
     t.true(languages.isSupported('zh-CN'));
 });
 
-test('test zh-cn supported', t => {
-    t.true(languages.isSupported('zh-cn'));
+test('test zh-cn unsupported', t => {
+    t.false(languages.isSupported('zh-cn'));
 });
 
 test('test zh-TW supported', t => {
     t.true(languages.isSupported('zh-TW'));
 });
 
-test('test zh-tw supported', t => {
-    t.true(languages.isSupported('zh-tw'));
+test('test zh-tw unsupported', t => {
+    t.false(languages.isSupported('zh-tw'));
 });
 
 test('test zh-CN supported – by name', t => {
