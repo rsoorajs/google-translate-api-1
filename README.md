@@ -141,14 +141,3 @@ Otherwise, it will be an empty `string` (`''`).
 ## Related
 
 - [`vertaler`](https://github.com/matheuss/vertaler) – CLI for this module
-
-## Related
-
-This Version is a Clone of
-- [`@vitalets/google-translate-api`](https://github.com/vitalets/google-translate-api) – A free and unlimited API for Google Translate
-And needs
-- [`@vitalets/google-translate-token`](https://github.com/vitalets/google-translate-token) – A Token fo the API for Google Translate
-
-**This Cloned Version Needs**
-
-- [`ZyC0R3-google-translate-token`](https://github.com/ZyC0R3/google-translate-token) – A Token fo the API for Google Translate
