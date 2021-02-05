@@ -1,7 +1,7 @@
 # google-translate-api
 [![Build Status](https://travis-ci.com/ZyC0R3/google-translate-api.svg?branch=master)](https://travis-ci.com/ZyC0R3/google-translate-api)
 
-A **free** and **unlimited** API for Google Translate :dollar::no_entry_sign: for Node.js.
+A **free** and **unlimited** API for Google Translate :dollar::no_entry_sign: for Discord Translation Bot, [RITA](https://ritabot.org/).
 
 ## Features
 
@@ -11,7 +11,7 @@ A **free** and **unlimited** API for Google Translate :dollar::no_entry_sign: fo
 - Fast and reliable – it uses the same servers that [translate.google.com](https://translate.google.com) uses
 
 ## Why this fork?
-This fork of original [vitalets/google-translate-api](https://github.com/vitalets/google-translate-api) contains several fixed for the discord translation bot [RITA](https://github.com/ZyC0R3/Rita)
+This fork of original [vitalets/google-translate-api](https://github.com/vitalets/google-translate-api) contains several fixed for the discord translation bot [RITA](https://github.com/ZyC0R3/RitaBot)
 
 
 ## Usage
@@ -19,7 +19,7 @@ This fork of original [vitalets/google-translate-api](https://github.com/vitalet
 From automatic language detection to English:
 
 ``` js
-const translate = require('@vitalets/google-translate-api');
+const translate = require('google-translate-api');
 
 translate('Ik spreek Engels', {to: 'en'}).then(res => {
     console.log(res.text);
@@ -87,13 +87,13 @@ Type: `object`
 
 Type: `string` Default: `auto`
 
-The `text` language. Must be `auto` or one of the codes/names (not case sensitive) contained in [languages.js](https://github.com/matheuss/google-translate-api/blob/master/languages.js)
+The `text` language. Must be `auto` or one of the codes/names (not case sensitive) contained in [languages.js](https://github.com/Zyc0r3/google-translate-api/blob/master/languages.js)
 
 ##### to
 
 Type: `string` Default: `en`
 
-The language in which the text should be translated. Must be one of the codes/names (not case sensitive) contained in [languages.js](https://github.com/matheuss/google-translate-api/blob/master/languages.js).
+The language in which the text should be translated. Must be one of the codes/names (not case sensitive) contained in [languages.js](https://github.com/Zyc0r3/google-translate-api/blob/master/languages.js).
 
 ##### raw
 
@@ -101,11 +101,6 @@ Type: `boolean` Default: `false`
 
 If `true`, the returned object will have a `raw` property with the raw response (`string`) from Google Translate.
 
-##### client
-
-Type: `string` Default: `"t"`
-
-Query parameter `client` used in API calls. Can be `t|gtx`.
 
 ##### tld
 
